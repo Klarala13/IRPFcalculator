@@ -1,0 +1,56 @@
+# Node modules
+/node_modules/
+
+# Build output
+/build/
+# Next.js
+/.next/
+# Gatsby
+/public/
+
+# Production environment
+.env.production
+
+# Testing environment
+.env.test
+
+# Logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+*.log
+
+# Dependency directories
+jspm_packages/
+
+# VS Code settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# JetBrains IDEs (IntelliJ IDEA, PhpStorm, etc.)
+.idea/
+
+# Yarn
+.yarn/
+.yarn-cache/
+
+# NPM
+package-lock.json
+
+# dotenv environment variables file
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Next.js specific build artifacts
+out/
