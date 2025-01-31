@@ -1,6 +1,10 @@
+@import "@fontsource/roboto"; 
+@import "@fontsource/roboto/700.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 :root {
   --background: #ffffff;
@@ -11,11 +15,12 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --corporate-color: #2D6A4F;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
