@@ -12,8 +12,6 @@ Deductions and Credits: Automatically applies common deductions and tax credits 
 
 Real-Time Calculations: Get instant feedback as you input your data.
 
-Customizable: Modify the tax rules and rates to align with your local laws or specific needs.
-
 Secure and Private: Your data stays local, ensuring privacy and security.
 
 Cross-Platform: Compatible with Windows, macOS, and Linux.
