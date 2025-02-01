@@ -1,0 +1,15 @@
+{
+    "formTitle": "Cálculo IRPF",
+    "grossAnnualSalary": "Sueldo Bruto Anual",
+    "age": "Edad",
+    "region": "Región",
+    "mobility": "¿Tienes movilidad?",
+    "children": "Número de hijos",
+    "disability": "¿Tienes discapacidad?",
+    "calculateButton": "Calcular",
+    "resultTitle": "Resultado",
+    "netSalary": "Sueldo Neto Anual",
+    "irpfRate": "Tipo de Retención IRPF",
+    "totalTax": "Total IRPF",
+    "socialSecurityQuota": "Cuota a la Seguridad Social"
+  }

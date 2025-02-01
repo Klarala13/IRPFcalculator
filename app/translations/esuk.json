@@ -1,0 +1,15 @@
+{
+    "formTitle": "IRPF Kalkulua",
+    "grossAnnualSalary": "Soldata Gordin Urteko",
+    "age": "Adina",
+    "region": "Eskualdea",
+    "mobility": "Mugikortasunik al duzu?",
+    "children": "Semearen edo alaba kopurua",
+    "disability": "Gaitasunik al duzu?",
+    "calculateButton": "Kalkulatu",
+    "resultTitle": "Emaitza",
+    "netSalary": "Soldata Garbia Urteko",
+    "irpfRate": "IRPF Atxikipen Tasa",
+    "totalTax": "IRPF Orokorra",
+    "socialSecurityQuota": "Gizarte Segurantzako Kuota"
+  }

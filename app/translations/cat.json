@@ -1,0 +1,15 @@
+{
+    "formTitle": "Càlcul IRPF",
+    "grossAnnualSalary": "Sou Brut Anual",
+    "age": "Edat",
+    "region": "Regió",
+    "mobility": "Tens mobilitat?",
+    "children": "Nombre de fills",
+    "disability": "Tens discapacitat?",
+    "calculateButton": "Calcular",
+    "resultTitle": "Resultat",
+    "netSalary": "Sou Net Anual",
+    "irpfRate": "Tipus de Retenció IRPF",
+    "totalTax": "Total IRPF",
+    "socialSecurityQuota": "Quota a la Seguretat Social"
+  }
