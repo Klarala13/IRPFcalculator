@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+import { TaxRatesByRegion } from "../helpers/taxRatesByRegion";
+import { useTranslation } from "@/app/hooks/useTranslation";
 
 type Region = keyof typeof TaxRatesByRegion;
-import { TaxRatesByRegion } from "../helpers/taxRatesByRegion";
 
 const IRPFForm = () => {
+  //ToDo validate with zod and react hook form
   const [formData, setFormData] = useState({
     grossAnnualSalary: "",
     age: "",
@@ -21,6 +23,10 @@ const IRPFForm = () => {
     socialSecurityQuota: "",
   });
   const regions = Object.keys(TaxRatesByRegion);
+  const { t } = useTranslation("esuk");
+  //ToDo add language from menu
+  //ToDo add colors to our CSS to create vars
+  //ToDo improve calculation
 
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
@@ -98,44 +104,55 @@ const IRPFForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-md space-y-6"
+      className="max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-md space-y-6 my-8"
     >
       <h2 className="text-2xl font-semibold text-center text-gray-700">
-        Calcular IRPF
+        {t("formTitle")}
       </h2>
 
       <div className="grid grid-cols-2 gap-6">
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Sueldo Bruto Anual
-          </label>
+        <div className="relative z-0 w-full mb-6 group">
           <input
             type="number"
             name="grossAnnualSalary"
+            id="grossAnnualSalary"
             value={formData.grossAnnualSalary}
             onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#4A8E6A] peer"
+            placeholder=" "
             required
           />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Edad
+          <label
+            htmlFor="grossAnnualSalary"
+            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-[#2D6A4F] peer-focus:border-[#4A8E6A] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >
+            {t("grossAnnualSalary")}
           </label>
+        </div>
+
+        <div className="relative z-0 w-full mb-6 group">
           <input
             type="number"
             name="age"
+            id="age"
             value={formData.age}
             onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#4A8E6A] peer"
+            placeholder=" "
             required
           />
+          <label
+            htmlFor="age"
+            className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-[#2D6A4F] peer-focus:border-[#4A8E6A] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >
+            {t("age")}
+          </label>
         </div>
       </div>
 
-      <div>
+      <div className="relative z-0 w-full mb-6 group">
         <label className="block text-sm font-medium text-gray-700">
-          Comunidad Autónoma
+          {t("region")}:
         </label>
         <select
           name="region"
@@ -151,19 +168,25 @@ const IRPFForm = () => {
         </select>
       </div>
 
+      <div className="relative z-0 w-full mb-6 group">
+        <input
+          type="number"
+          name="children"
+          id="children"
+          value={formData.children}
+          onChange={handleChange}
+          className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#4A8E6A] peer"
+          placeholder=" "
+        />
+        <label
+          htmlFor="children"
+          className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:text-[#2D6A4F] peer-focus:text-[#4A8E6A] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >
+          {t("children")}
+        </label>
+      </div>
+
       <div className="grid grid-cols-2 gap-6">
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Hijos
-          </label>
-          <input
-            type="number"
-            name="children"
-            value={formData.children}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded-md"
-          />
-        </div>
         <div className="flex items-center gap-2">
           <input
             type="checkbox"
@@ -173,7 +196,7 @@ const IRPFForm = () => {
             className="h-5 w-5 text-green-600"
           />
           <label className="text-sm font-medium text-gray-700">
-            Movilidad geográfica
+            {t("mobility")}:
           </label>
         </div>
         <div className="flex items-center gap-2">
@@ -185,35 +208,35 @@ const IRPFForm = () => {
             className="h-5 w-5 text-green-600"
           />
           <label className="text-sm font-medium text-gray-700">
-            Discapacidad
+            {t("disability")}:
           </label>
         </div>
       </div>
 
       <button
         type="submit"
-        className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700"
+        className="w-full bg-[#4A8E6A] text-white py-2 rounded-md hover:bg-green-700 font-bold"
       >
-        Calcular
+        {t("calculateButton")}
       </button>
 
-      {output.netSalary && (
+      {output && (
         <div className="mt-4 p-4 bg-gray-100 rounded-md text-center">
           <p className="text-lg font-semibold">
-            Sueldo Neto Anual:{" "}
-            <span className="text-green-600">{output.netSalary} €</span>
+            {t("netSalary")}:
+            <span className="text-[#4A8E6A]">{output.netSalary} €</span>
           </p>
           <p className="text-lg font-semibold">
-            Tipo de retención IRPF:{" "}
-            <span className="text-green-600">{output.irpfRate}%</span>
+            {t("irpfRate")}:
+            <span className="text-[#4A8E6A]">{output.irpfRate}%</span>
           </p>
           <p className="text-lg font-semibold">
-            Cuota IRPF:{" "}
-            <span className="text-green-600">{output.totalTax} €</span>
+            {t("totalTax")}:
+            <span className="text-[#4A8E6A]">{output.totalTax} €</span>
           </p>
           <p className="text-lg font-semibold">
-            Cuota Seguridad Social:{" "}
-            <span className="text-green-600">
+            {t("socialSecurityQuota")}:
+            <span className="text-[#4A8E6A]">
               {output.socialSecurityQuota} €
             </span>
           </p>
